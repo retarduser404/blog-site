@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: blog-app-server
+    env: node
+    buildCommand: npm install --prefix server
+    startCommand: node server/server.js
+    rootDir: ./
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
